@@ -12,8 +12,32 @@
 
 > react-native run-android
 
+## todo
+-[] 在线图标
+-[] 路由
+-[x] 请求
+
+## 调试
+
+**模拟器调试 Genymothion**
+
+* 安装好模拟器, 添加一个 Android 设备.
+* 启动 ,设置开发者模式.连续点击手机版本 5 次,进入开发者模式.
+* 用 `adb devices` 命令查看当前设备.
+* 如果看不到,请尝试设置下 Genymotion. setting > adb > custom > 填写你下载sdk目录.
+* command + m 调出菜单,设置 debug server host & port fro device eg: 192.168.31.101:8081
+
+**真机调试**
+
+* 手机设置开发者模式,连接电脑 (adb devices 查看)
+* 启动项目 react-native run-android
+* 设置 debug server host & port fro device
 
 ## 目录结构
+
+## HTTP 请求 Fetch
+
+[fetch用法说明][fetch用法说明 Link]
 
 ## 打包apk
 
@@ -115,4 +139,17 @@ android {
 
 具体步骤参考 [打包APK][打包APK Link]
 
+
+
+## 参考链接
+[给所有开发者的React Native详细入门指南][给所有开发者的React Native详细入门指南 Link]
+
+
+## 感谢
+- [Marno][Marno Link]
+
+[fetch用法说明 Link]:https://segmentfault.com/a/1190000007019545
 [打包APK Link]:http://reactnative.cn/docs/0.45/signed-apk-android.html#content
+[给所有开发者的React Native详细入门指南 Link]:http://www.jianshu.com/p/fa0874be0827
+
+[Marno Link]: https://github.com/MarnoDev

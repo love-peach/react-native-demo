@@ -2,13 +2,17 @@
  * Created by zhangjinpei on 2017/6/27.
  */
 
-import common from '../common/common'
+import common from '../lib/common'
+var qs = require('qs');
 
-export function fetchUtil(url, data, method = 'get', options = {}) {
-    url = method === 'get' ? common.mosaicUrl(url, data) : url;
+export function fetchUtil(url, params, method = 'get', options = {}) {
+    const isGetMethod = method === 'get'
+    const headers = options.headers ? {...options.headers} : null
+    url = isGetMethod ? common.mosaicUrl(url, params) : url;
     const init = {
         method,
-        // body: JSON.stringify(data),
+        headers,
+        body: isGetMethod ? null : qs.stringify(params),
         ...options
     }
     const fetchPromise = new Promise((resolve, reject) => {
@@ -16,27 +20,6 @@ export function fetchUtil(url, data, method = 'get', options = {}) {
             .then(response => resolve(response.json()))
             .catch((error) => reject(error))
     });
-
-
-    // const fetchPromise = new Promise((resolve, reject) => {
-    //     instance({
-    //         method,
-    //         url,
-    //         data,
-    //         cancelToken: new CancelToken(c => cancel = c),
-    //         ...options,
-    //     }).then(response => {
-    //         resolve(response.data.result || response.data || response, response.data);
-    //     }).catch((error) => {
-    //         reject(error);
-    //
-    //     })
-    // });
-    // fetchPromise.cancel = function () {
-    //     cancel({
-    //         canceled: true,
-    //     });
-    // };
     return fetchPromise;
 }
 export default {
@@ -44,7 +27,7 @@ export default {
         return fetchUtil(url, params, 'get', options);
     },
     post(url, params, options) {
-        return fetchUtil(url, params, 'post', options);
+        return fetchUtil(url, params, 'POST', options);
     },
     put(url, params, options) {
         return fetchUtil(url, params, 'put', options);

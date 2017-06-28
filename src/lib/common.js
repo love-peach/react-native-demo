@@ -30,6 +30,15 @@ function mosaicUrl(url, params) {
     return url;
 }
 
+function createFormData(params) {
+    let formData = new FormData();
+    for(let key in params) {
+        formData.append(key, params[key]);
+    }
+    return formData;
+}
+
 export default {
     mosaicUrl,
+    createFormData
 }

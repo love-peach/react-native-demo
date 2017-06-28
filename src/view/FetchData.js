@@ -3,89 +3,110 @@
  * Desc:
  */
 import React, {Component} from 'react';
-import {
-    ScrollView,
-    Text,
-    Image,
-    View,
-    StyleSheet,
-    ToastAndroid,
-} from 'react-native';
+import { Container, Content, Spinner, List, ListItem, Thumbnail, Text, Body } from 'native-base';
+import { View } from 'react-native';
 import request from '../server/request';
 
 export default class FetchData extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [],
+            playLists: [],
         }
     }
 
-    // 获取用户
-    requestUsers = () => {
-        const that = this;
-        request.getUser()
+    // 搜索
+    requestSearch = () => {
+        const params = {
+            s: '张国荣',
+            limit: 20,
+            offset: 0,
+            type: 1000,
+        }
+
+        request.searchByWord(params)
             .then((responseJson) => {
-                    var users = responseJson;
-                    console.log(users[3].id, 'users');
-                    that.setState({
-                        users: users,
-                    })
-                })
+                this.setState({
+                    playLists: responseJson.result.playlists,
+                });
+            })
+            .catch()
+    };
+
+    // 获取歌单详情
+    requestSongListDetail = () => {
+        const params = {
+            id: 462356530,
+            updateTime: -1,
+            limit: 11,
+            offset: 0,
+        }
+        request.getSongListDetail(params)
+            .then((responseJson) => {
+                console.log(responseJson.result.tracks.length, 'responseJson');
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    };
+
+    // 获取歌词
+    requestSingWord = () => {
+        const params = {
+            os: 'mobile',
+            id: 93922,
+            lv: -1,
+            kv: -1,
+            tv: -1,
+        }
+        request.getSingWord(params)
+            .then((responseJson) => {
+                console.log(responseJson, 'responseJson111')
+            })
             .catch();
     };
 
     //页面渲染完成后会主动回调该方法
     componentDidMount() {
-        this.requestUsers();
+        // this.requestSingWord();
+        this.requestSearch();
+        this.requestSongListDetail();
     }
+    //绘制界面
     render() {
-        return (
-            <ScrollView>
+        let playLists = this.state.playLists;
+        const placeholderContent =  (
+            <View>
+                <Spinner color='green'/>
+                <Text style={{textAlign: "center", fontSize: 16}}>加载中...</Text>
+            </View>
+        )
+        const playListsItems = (
+            <List>
                 {
-                    this.state.users.map((item, key) => {
+                    this.state.playLists.map((item, key) => {
                         return (
-                            <View style={UserItemStyle.container_out} key={key}>
-                                <Image style={UserItemStyle.image_UserAvatar} source={{uri: item.owner.avatar_url}}/>
-                                <View style={UserItemStyle.container_right}>
-                                    <Text style={UserItemStyle.text_UserID}>{item.name}</Text>
-                                    <Text style={UserItemStyle.text_UserType}>{item.id}</Text>
-                                </View>
-                            </View>
+                            <ListItem key={key}>
+                                <Thumbnail square size={80} source={{ uri: item.coverImgUrl }} />
+                                <Body>
+                                    <Text>{item.name}</Text>
+                                    <Text note>{item.trackCount} 首</Text>
+                                </Body>
+                            </ListItem>
                         );
                     })
                 }
-            </ScrollView>
+            </List>
+        );
+
+        return (
+            <Container>
+                <Content>
+                    {
+                        playLists.length > 0 ? playListsItems : placeholderContent
+                    }
+                </Content>
+            </Container>
         )
     }
 }
-const UserItemStyle = StyleSheet.create({
-    container_out: {
-        backgroundColor: "white",
-        height: 100,
-        flexDirection: "row",
-        alignItems: "center"
-    },
-    container_right: {
-        flexDirection: "column",
-        height: 80,
-        flexGrow: 1,
-    },
-    image_UserAvatar: {
-        borderRadius: 80,
-        width: 80,
-        height: 80,
-        resizeMode: "cover",
-        marginHorizontal: 12
-    },
-    text_UserID: {
-        color: "black",
-        fontSize: 16,
-        lineHeight: 24,
-    },
-    text_UserType: {
-        color: "gray",
-        fontSize: 12,
-        lineHeight: 20,
-    },
-})

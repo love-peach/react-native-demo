@@ -4,11 +4,14 @@
  */
 import React, {Component} from 'react';
 import {AppRegistry} from 'react-native';
-import './utils/StorageUtils';
+import './lib/StorageUtils';
+
+import Router from './router'
 
 // import HelloWorld from './view/HelloWorld';
-import FetchData from './view/FetchData';
+// import FetchData from './view/FetchData';
+// import NativeBase from './view/NativeBase';
 
 
 // 注意，这里用引号括起来的'RNDemo'必须和你 init 时创建的项目名一致
-AppRegistry.registerComponent('RNDemo', () => FetchData);
+AppRegistry.registerComponent('RNDemo', () => Router);
