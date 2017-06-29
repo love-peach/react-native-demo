@@ -13,8 +13,8 @@
 > react-native run-android
 
 ## todo
--[] 在线图标
--[] 路由
+-[x] 图标
+-[x] 路由
 -[x] 请求
 
 ## 调试
@@ -38,6 +38,9 @@
 ## HTTP 请求 Fetch
 
 [fetch用法说明][fetch用法说明 Link]
+
+## 字体图标
+参考这里:[React Native如何实现自定义字体][React Native如何实现自定义字体 Link]
 
 ## 打包apk
 
@@ -149,6 +152,7 @@ android {
 - [Marno][Marno Link]
 
 [fetch用法说明 Link]:https://segmentfault.com/a/1190000007019545
+[React Native如何实现自定义字体 Link]:http://blog.csdn.net/qq_31280709/article/details/73441128
 [打包APK Link]:http://reactnative.cn/docs/0.45/signed-apk-android.html#content
 [给所有开发者的React Native详细入门指南 Link]:http://www.jianshu.com/p/fa0874be0827
 
