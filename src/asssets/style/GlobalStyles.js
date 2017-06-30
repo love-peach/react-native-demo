@@ -18,4 +18,11 @@ export default {
     textColorGray: '#999999',
     bgColorBright: '#f2f4f5',
     bgColorGray: '#e7e9e9',
+    border: function (borderStyle = 'solid', borderWidth = 1, borderColor = 'red') {
+        return {
+            borderStyle,
+            borderWidth,
+            borderColor
+        }
+    }
 }

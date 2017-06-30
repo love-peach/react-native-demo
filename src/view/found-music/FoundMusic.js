@@ -24,7 +24,7 @@ export default class FoundMusic extends Component {
         const { navigation } = this.props;
         const { tabNames, tabIconNames } = this.state;
         return(
-            <PageFirst>
+            <PageFirst navigation={navigation}>
                 <ScrollableTabView
                     renderTabBar={() => <CustomTabBar tabNames={tabNames}/>}
                     tabBarUnderlineColor='#FF0000'

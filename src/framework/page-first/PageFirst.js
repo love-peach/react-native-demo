@@ -7,15 +7,21 @@
  * Desc:
  */
 import React, {Component} from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { Container } from "native-base";
 import HeaderBar from '../header-bar/HeaderBar'
 
 export default class PageFirst extends Component {
+    constructor(props) {
+        super(props);
+    }
+    
     render() {
+        const { navigation } = this.props;
+
         return (
             <Container>
-                <HeaderBar />
+                <HeaderBar navigation={navigation} />
                 <View style={{ flex: 1}}>
                     {this.props.children}
                 </View>

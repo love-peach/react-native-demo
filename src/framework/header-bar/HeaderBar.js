@@ -11,13 +11,21 @@ import IconFont from '../../components/IconFont'
 export default class HeaderBar extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            activeTab: 'FoundMusic'
+        }
     }
 
-    handleJumpPage = () => {
-        alert("我只是个字体图标")
+    handleJumpPage = (type) => {
+        this.setState({
+            activeTab: type
+        });
+        this.props.navigation.navigate(type);
     }
 
     render() {
+        const { navigation } = this.props;
+        const { activeTab } = this.state;
         return (
             <View>
                 <StatusBar
@@ -36,20 +44,20 @@ export default class HeaderBar extends Component {
                         <IconFont
                             waves
                             font="&#xe6b7;"
-                            style={[styles.icon, styles.iconTab]}
-                            onPress={() => this.handleJumpPage() }
+                            style={[styles.icon, styles.iconTab, activeTab === 'MineMusic' ? styles.activeTab : '']}
+                            onPress={() => this.handleJumpPage('MineMusic') }
                         />
                         <IconFont
                             waves
                             font="&#xe601;"
-                            style={[styles.icon, styles.iconTab]}
-                            onPress={() => this.handleJumpPage() }
+                            style={[styles.icon, styles.iconTab, activeTab === 'FoundMusic' ? styles.activeTab : '']}
+                            onPress={() => this.handleJumpPage('FoundMusic') }
                         />
                         <IconFont
                             waves
                             font="&#xe60d;"
-                            style={[styles.icon, styles.iconTab]}
-                            onPress={() => this.handleJumpPage() }
+                            style={[styles.icon, styles.iconTab, activeTab === 'Friend' ? styles.activeTab : '']}
+                            onPress={() => this.handleJumpPage('Friend') }
                         />
                     </View>
                     <View style={styles.right}>
@@ -89,17 +97,23 @@ const styles = StyleSheet.create({
     },
     icon: {
         textAlign: 'center',
-        color: 'rgba(255,255,255,.7)',
-        fontSize: 24,
+
+        fontSize: 22,
     },
     iconMenu: {
+        color: 'rgba(255,255,255,.9)',
         fontSize: 26,
     },
     iconSearch: {
+        color: 'rgba(255,255,255,.9)',
         fontSize: 22,
     },
     iconTab: {
+        color: 'rgba(255,255,255,.6)',
         paddingRight: 3,
         paddingLeft: 3
+    },
+    activeTab: {
+        color: '#ffffff',
     }
 });

@@ -3,9 +3,11 @@
  * Desc:
  */
 import React, {Component} from 'react';
+import { TouchableNativeFeedback, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { Container, Content, Spinner, List, ListItem, Thumbnail, Text, Body } from 'native-base';
 import { View } from 'react-native';
 import request from '../server/request';
+import GlobalStyles from '../asssets/style/GlobalStyles';
 
 export default class FetchData extends Component {
     constructor(props) {
@@ -77,25 +79,21 @@ export default class FetchData extends Component {
         let playLists = this.state.playLists;
         const placeholderContent =  (
             <View>
-                <Spinner color='green'/>
+                <Spinner color={GlobalStyles.mainColor}/>
                 <Text style={{textAlign: "center", fontSize: 16}}>加载中...</Text>
             </View>
-        )
+        );
         const playListsItems = (
-            <List>
-                {
-                    this.state.playLists.map((item, key) => {
-                        return (
-                            <ListItem key={key}>
-                                <Thumbnail square size={80} source={{ uri: item.coverImgUrl }} />
-                                <Body>
-                                    <Text>{item.name}</Text>
-                                    <Text note>{item.trackCount} 首</Text>
-                                </Body>
-                            </ListItem>
-                        );
-                    })
-                }
+            <List dataArray={this.state.playLists}
+                renderRow={(item) =>
+                    <ListItem>
+                        <Thumbnail square size={80} source={{ uri: item.coverImgUrl }} />
+                        <Body>
+                            <Text>{item.name}</Text>
+                            <Text note>{item.trackCount} 首</Text>
+                        </Body>
+                    </ListItem>
+                }>
             </List>
         );
 
