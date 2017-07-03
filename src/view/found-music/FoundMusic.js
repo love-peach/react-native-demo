@@ -6,9 +6,8 @@ import React, {Component} from 'react'
 import { TouchableOpacity, View, Text, Button} from 'react-native'
 import { Content } from "native-base"
 import ScrollableTabView from 'react-native-scrollable-tab-view'
-import PageFirst from '../../framework/page-first/PageFirst'
 import CustomTabBar from '../../components/custom-tab-bar/CustomTabBar'
-import AnchorRdio from './anchor-radio/AnchorRadio';
+import AnchorRadio from './anchor-radio/AnchorRadio';
 import Ranking from './ranking/Ranking';
 import Recommendation from './recommendation/Recommendation';
 import SongListView from './song-list/SongListView';
@@ -17,14 +16,25 @@ export default class FoundMusic extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isReady: false,
             tabNames: ['个性推荐', '歌单', '主播电台', '排行榜'],
         };
     }
-    render() {
+
+    componentDidMount () {
+        setTimeout(() => {
+            this.setState({
+                isReady: true,
+            });
+        }, 100)
+    }
+
+    renderContent = () => {
+        const { isReady } = this.state;
         const { navigation } = this.props;
         const { tabNames, tabIconNames } = this.state;
-        return(
-            <PageFirst navigation={navigation}>
+        if(isReady) {
+            return (
                 <ScrollableTabView
                     renderTabBar={() => <CustomTabBar tabNames={tabNames}/>}
                     tabBarUnderlineColor='#FF0000'
@@ -35,10 +45,20 @@ export default class FoundMusic extends Component {
                 >
                     <Recommendation navigation={navigation} tabLabel='个性推荐'/>
                     <SongListView navigation={navigation} tabLabel='歌单'/>
-                    <AnchorRdio navigation={navigation} tabLabel='主播电台'/>
+                    <AnchorRadio navigation={navigation} tabLabel='主播电台'/>
                     <Ranking navigation={navigation} tabLabel='排行榜'/>
                 </ScrollableTabView>
-            </PageFirst>
+            );
+        } else {
+            return (
+                <View style={{flex: 1}}></View>
+            );
+        }
+    };
+
+    render() {
+        return (
+            this.renderContent()
         );
     }
 }

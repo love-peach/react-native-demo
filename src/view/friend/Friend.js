@@ -4,9 +4,7 @@
  */
 import React, {Component} from 'react';
 import { Image } from 'react-native';
-import { Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
-import PageFirst from '../../framework/page-first/PageFirst';
-
+import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
 
 export default class Friend extends Component {
     constructor(props) {
@@ -20,7 +18,7 @@ export default class Friend extends Component {
     render() {
         const { navigation } = this.props;
         return (
-            <PageFirst navigation={navigation}>
+            <Container>
                 <Content style={{padding: 10}}>
                     <Card>
                         <CardItem>
@@ -98,7 +96,7 @@ export default class Friend extends Component {
                         </CardItem>
                     </Card>
                 </Content>
-            </PageFirst>
+            </Container>
         );
     }
 }

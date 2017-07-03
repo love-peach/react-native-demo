@@ -4,8 +4,7 @@
  */
 import React, {Component} from 'react';
 import {} from 'react-native';
-import { Content, List, ListItem, Text, Icon, Left, Body, Right, Switch } from 'native-base';
-import PageFirst from '../../framework/page-first/PageFirst';
+import { Container, Content, List, ListItem, Text, Icon, Left, Body, Right, Switch } from 'native-base';
 
 export default class MineMusic extends Component {
     constructor(props) {
@@ -19,7 +18,7 @@ export default class MineMusic extends Component {
     render() {
         const { navigation } = this.props;
         return (
-            <PageFirst navigation={navigation}>
+            <Container>
                 <Content>
                     <List>
                         <ListItem icon>
@@ -59,7 +58,7 @@ export default class MineMusic extends Component {
                         </ListItem>
                     </List>
                 </Content>
-            </PageFirst>
+            </Container>
         );
     }
 }

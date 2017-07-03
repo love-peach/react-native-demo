@@ -36,6 +36,7 @@ export default class Recommendation extends Component {
                 showsVerticalScrollIndicator={false}//是否显示垂直滚动条
             >
                 <Banner />
+                <Text onPress={() => {navigate('DrawerOpen')}}>嵌套页面跳转</Text>
                 <Article />
             </ScrollView>
         );

@@ -37,7 +37,7 @@ export default class HeaderBar extends Component {
                             waves
                             font="&#xe614;"
                             style={[styles.icon, styles.iconMenu]}
-                            onPress={() => this.handleJumpPage() }
+                            onPress={() => {navigation.navigate('DrawerOpen')} }
                         />
                     </View>
                     <View style={styles.content}>
