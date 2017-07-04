@@ -21,7 +21,7 @@ export default class Banner extends Component {
             this.setState({
                 isShowSwiper: true,
             });
-        }, 100)
+        }, 0)
         this.setState({
             items: [
                 { title: 'Hello Swiper', css: styles.slide1 },
@@ -59,7 +59,7 @@ export default class Banner extends Component {
             );
         } else {
             return (
-                <View style={{height: bannerHeight}}><Text>fe</Text></View>
+                <View style={{height: bannerHeight,backgroundColor: '#f1f1f1'}}><Text></Text></View>
             );
         }
     }

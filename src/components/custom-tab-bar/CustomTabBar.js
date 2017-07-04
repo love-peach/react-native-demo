@@ -18,7 +18,7 @@ export default class CustomTabBar extends Component {
     }
 
     setAnimationValue({value}) {
-        console.log(value);
+        // console.log(value);
     }
 
     componentDidMount() {
