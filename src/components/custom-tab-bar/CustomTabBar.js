@@ -4,8 +4,8 @@
  */
 import React, {Component} from 'react';
 import { StyleSheet, View, TouchableOpacity, Text, Animated } from 'react-native';
-import { Icon} from "native-base";
 import GlobalStyles from '../../asssets/style/GlobalStyles';
+import IconFont from '../IconFont';
 
 export default class CustomTabBar extends Component {
     static propTypes = {
@@ -33,7 +33,7 @@ export default class CustomTabBar extends Component {
                 <View style={styles.tabItem}>
                     {
                         this.props.tabIconNames ? (
-                            <Icon
+                            <IconFont
                                 name={this.props.tabIconNames[i]} // 图标
                                 size={30}
                                 color={color}/>

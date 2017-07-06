@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
-import { Button } from 'native-base'
+import { StyleSheet, Text, View, Button, TouchableNativeFeedback, TouchableOpacity } from 'react-native';
 import GlobalStyles from '../asssets/style/GlobalStyles'
 
 export default class IconFont extends Component  {
@@ -15,11 +10,14 @@ export default class IconFont extends Component  {
     renderIconFont = () => {
         if(this.props.waves) {
             return (
-                <Button transparent onPress={this.props.onPress} style={styleObj.button}>
-                    <Text style={[styles.icon, this.props.style]}>
+                <TouchableOpacity
+                    style={styleObj.button}
+                    onPress={this.props.onPress}
+                >
+                    <Text style={[ styles.icon, this.props.style]}>
                         {this.props.font}
                     </Text>
-                </Button>
+                </TouchableOpacity>
             );
         } else {
             return (
@@ -44,6 +42,7 @@ const styleObj = {
         paddingBottom: 0,
         paddingRight: 15,
         paddingLeft: 15,
+        justifyContent: 'center',
         height: GlobalStyles.navBarHeight,
     }
 }

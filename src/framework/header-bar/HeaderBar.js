@@ -4,7 +4,6 @@
  */
 import React, {Component} from "react";
 import { StyleSheet, Text, ScrollView, View, StatusBar} from 'react-native';
-import { Header, Title, Left, Right, Body, Icon, Button, Tab, Tabs} from "native-base";
 import GlobalStyles from '../../asssets/style/GlobalStyles';
 import IconFont from '../../components/IconFont'
 

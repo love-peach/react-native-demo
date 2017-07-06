@@ -4,7 +4,6 @@
  */
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
-import { Button } from 'native-base';
 import FetchData from '../../FetchData';
 
 export default class SongListView extends Component {

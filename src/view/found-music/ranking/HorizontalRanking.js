@@ -4,7 +4,6 @@
  */
 import React, {Component} from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
-import { Thumbnail } from 'native-base';
 import GlobalStyles from '../../../asssets/style/GlobalStyles';
 
 export default class HorizontalRanking extends Component {
@@ -22,7 +21,7 @@ export default class HorizontalRanking extends Component {
             return (
                 <View style={[styles.itemWrap]} key={key}>
                     <View style={{height: GlobalStyles.windowWidth/3}}>
-                        <Thumbnail square source={{uri: item.imgPic + '?param=100y100'}} style={{width: null, flex: 1, height: GlobalStyles.windowWidth/3}} />
+                        <Image square source={{uri: item.imgPic + '?param=100y100'}} style={{width: null, flex: 1, height: GlobalStyles.windowWidth/3}} />
                     </View>
                     <View style={{height: 40}}>
                         <Text>{item.text}</Text>
