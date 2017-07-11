@@ -154,13 +154,12 @@ android {
 *几种情况的 checkUpdate*
 checkUpdate(appKey).then(info => {})
 - 首次添加热更新,但是没有上传版本,点击检查更新, info 返回{expired: true}：该应用包(原生部分)已过期，需要前往应用市场下载新的版本。
--
-
+- 上传新版本后 info 返回 {update: true} 当前有新版本可以更新
+- 下载更新版本后,返回 {upToDate: true} 当前已经更新到最新，无需进行更新.
 
 
 ## 参考链接
 [给所有开发者的React Native详细入门指南][给所有开发者的React Native详细入门指南 Link]
-
 
 ## 感谢
 - [Marno][Marno Link]
