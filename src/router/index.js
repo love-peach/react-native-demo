@@ -1,7 +1,7 @@
 /**
  * Created by zhangjinpei on 2017/6/28.
  */
-
+import react from 'react';
 import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation';
 import HeaderBar from '../framework/header-bar/HeaderBar';
 import SidePanel from '../framework/side-panel/SidePanel';

@@ -16,6 +16,8 @@
 -[x] 图标
 -[x] 路由
 -[x] 请求
+-[x] 热更新
+-[x] 发布到应用市场
 
 ## 调试
 
@@ -142,6 +144,18 @@ android {
 
 具体步骤参考 [打包APK][打包APK Link]
 
+## 热更新
+
+怎么添加热更新功能,看这里[RN 热更新][RN 热更新 Link]
+
+*热更新注意事项*
+- 首次添加热更新的时候,想在本地测试,需要重新安装应用.不然会报错.
+
+*几种情况的 checkUpdate*
+checkUpdate(appKey).then(info => {})
+- 首次添加热更新,但是没有上传版本,点击检查更新, info 返回{expired: true}：该应用包(原生部分)已过期，需要前往应用市场下载新的版本。
+-
+
 
 
 ## 参考链接
@@ -154,6 +168,7 @@ android {
 [fetch用法说明 Link]:https://segmentfault.com/a/1190000007019545
 [React Native如何实现自定义字体 Link]:http://blog.csdn.net/qq_31280709/article/details/73441128
 [打包APK Link]:http://reactnative.cn/docs/0.45/signed-apk-android.html#content
+[RN 热更新 Link]:https://github.com/reactnativecn/react-native-pushy/blob/master/docs/guide.md
 [给所有开发者的React Native详细入门指南 Link]:http://www.jianshu.com/p/fa0874be0827
 
 [Marno Link]: https://github.com/MarnoDev
