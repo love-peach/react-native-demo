@@ -3,13 +3,13 @@
  */
 import react from 'react';
 import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation';
-import HeaderBar from '../framework/header-bar/HeaderBar';
-import SidePanel from '../framework/side-panel/SidePanel';
-import MineMusic from '../view/mine-music/MineMusic';
-import Friend from '../view/friend/Friend';
-import FoundMusic from '../view/found-music/FoundMusic'
-import FetchData from '../view/FetchData';
-import HelloWorld from '../view/HelloWorld';
+import HeaderBar from '../framework/header-bar/headerBar';
+import SidePanel from '../framework/side-panel/sidePanel';
+import MineMusic from '../view/mine-music/mineMusic';
+import Friend from '../view/friend/friend';
+import FoundMusic from '../view/found-music/foundMusic'
+import FetchData from '../view/fetchData';
+import HelloWorld from '../view/helloWorld';
 
 // 定义主屏幕三个 Tab 切换页面
 const MainScreenNavigator = TabNavigator(
