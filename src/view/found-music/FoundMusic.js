@@ -5,11 +5,11 @@
 import React, {Component} from 'react'
 import { TouchableOpacity, View, Text} from 'react-native'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
-import CustomTabBar from '../../components/custom-tab-bar/customTabBar'
-import AnchorRadio from './anchor-radio/anchorRadio';
-import Ranking from './ranking/ranking';
-import Recommendation from './recommendation/recommendation';
-import SongListView from './song-list/songListView';
+import CustomTabBar from '../../components/custom-tab-bar/CustomTabBar'
+import AnchorRadio from './anchor-radio/AnchorRadio';
+import Ranking from './ranking/Ranking';
+import Recommendation from './recommendation/Recommendation';
+import SongListView from './song-list/SongListView';
 
 export default class FoundMusic extends Component {
     constructor(props) {

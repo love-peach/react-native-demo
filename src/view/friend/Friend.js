@@ -62,7 +62,7 @@ export default class Friend extends Component {
         const { navigation } = this.props;
         return (
             <View>
-                <Text>这是版本二. </Text>
+                <Text>这是版本三 我把大小写改了</Text>
                 <Text>当前包版本号 {packageVersion} </Text>
                 <Text>当前版本Hash: {currentVersion||'(空)'}</Text>
                 <View style={Styles.button}>

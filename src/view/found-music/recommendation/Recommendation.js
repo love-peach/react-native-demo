@@ -4,8 +4,8 @@
  */
 import React, {Component} from 'react';
 import { ScrollView, View, Text } from 'react-native';
-import Banner from './banner';
-import Article from '../../article';
+import Banner from './Banner';
+import Article from '../../Article';
 
 export default class Recommendation extends Component {
     constructor(props) {

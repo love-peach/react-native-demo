@@ -4,7 +4,7 @@
  */
 import React, {Component} from 'react';
 import {Text, View, ScrollView} from 'react-native';
-import HorizontalRanking from './horizontalRanking';
+import HorizontalRanking from './HorizontalRanking';
 
 export default class Ranking extends Component {
     constructor(props) {

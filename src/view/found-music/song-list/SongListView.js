@@ -4,7 +4,7 @@
  */
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
-import FetchData from '../../fetchData';
+import FetchData from '../../FetchData';
 
 export default class SongListView extends Component {
     constructor(props) {
